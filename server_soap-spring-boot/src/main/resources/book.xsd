@@ -1,0 +1,95 @@
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+	xmlns:tns="http://nantes.ynov.com/soap/book"
+	targetNamespace="http://nantes.ynov.com/soap/book"
+	elementFormDefault="qualified">
+
+	<!-- Entité exposée -->
+	<xsd:complexType name="book">
+		<xsd:sequence>
+			<xsd:element name="id" type="xsd:integer"/>
+			<xsd:element name="title" type="xsd:string"/>
+			<xsd:element name="ISBN" type="xsd:integer"/>
+			<xsd:element name="publicationDate" type="xsd:date"/>
+		</xsd:sequence>
+	</xsd:complexType>
+
+	<!-- Récupérer un livre par son titre -->
+	<xsd:element name="getBookByTitleRequest">
+		<xsd:complexType>
+			<xsd:sequence>
+				<!-- Ici les arguments pour appeler la méthode : 1, 2 arguements ? Au choix -->
+				<xsd:element name="title" type="xsd:string"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+
+	<xsd:element name="getBookResponse">
+		<!-- A compléter : quel type d'objet doit-on retourner ici -->
+		<xsd:complexType>
+			<xsd:sequence>
+				<!-- Ici les arguments pour appeler la méthode : 1, 2 arguements ? Au choix -->
+				<xsd:element name="book" type="tns:book"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+
+	<!-- Récupérer l'ensemble des livres -->
+	<xsd:element name="getBooksRequest">
+		<xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="books" type="tns:book"/>
+            </xsd:sequence>
+        </xsd:complexType>
+	</xsd:element>
+
+	
+	<xsd:element name="getBooksResponse">
+		<!-- A compléter : quel type d'objet doit-on retourner ici -->
+		<xsd:complexType>
+			<xsd:sequence>
+				<!-- Ici les arguments pour appeler la méthode : 1, 2 arguements ? Au choix -->
+				<xsd:element name="books" type="tns:book"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+
+	
+	<!-- Ajouter un livre -->
+	<xsd:element name="addBookRequest">
+		<xsd:complexType>
+			<xsd:sequence>
+				<!-- Ici les arguments pour appeler la méthode : 1, 2 arguements ? Au choix -->
+				<xsd:element name="book" type="tns:book"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	
+	<xsd:element name="addBookResponse">
+		<xsd:complexType>
+			<xsd:sequence>
+				<!-- Ici les arguments pour appeler la méthode : 1, 2 arguements ? Au choix -->
+				<xsd:element name="book" type="tns:book"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	
+	<!-- Supprimer un livre -->
+	<xsd:element name="deleteBookRequest">
+		<xsd:complexType>
+			<xsd:sequence>
+				<!-- Ici les arguments pour appeler la méthode : 1, 2 arguements ? Au choix -->
+				<xsd:element name="id" type="xsd:integer"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	
+	<xsd:element name="DeleteBookResponse">
+		<xsd:complexType>
+			<xsd:sequence>
+				<!-- Ici les arguments pour appeler la méthode : 1, 2 arguements ? Au choix -->
+				<xsd:element name="id" type="xsd:integer"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+
+</xsd:schema>

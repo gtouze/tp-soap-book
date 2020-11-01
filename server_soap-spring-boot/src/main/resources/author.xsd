@@ -1,0 +1,80 @@
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+	xmlns:tns="http://nantes.ynov.com/soap/author"
+	targetNamespace="http://nantes.ynov.com/soap/author"
+	elementFormDefault="qualified">
+
+	<!-- Entité exposée -->
+	<xsd:complexType name="author">
+		<xsd:sequence>
+			<!-- Ici ses attributs -->
+			<xsd:element name="id" type="xsd:integer"/>
+			<xsd:element name="firstName" type="xsd:string"/>
+			<xsd:element name="lastName" type="xsd:string"/>
+		</xsd:sequence>
+	</xsd:complexType>
+
+	<!-- Récupérer un auteur -->
+	<xsd:element name="getAuthorRequest">
+		<xsd:complexType>
+			<xsd:sequence>
+				<!-- Ici les arguments pour appeler la méthode : 1, 2 arguements ? Au choix -->
+				<xsd:element name="id" type="xsd:integer"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+
+	<xsd:element name="getAuthorResponse">
+		<!-- A compléter : quel type d'objet doit-on retourner ici -->
+		<xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="author" type="tns:author"/>
+            </xsd:sequence>
+        </xsd:complexType>
+		
+	</xsd:element>
+
+	<!-- Récupérer l'ensemble des auteurs -->
+	<xsd:element name="getAuthorsRequest">
+		<xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="authors" type="tns:author"/>
+            </xsd:sequence>
+        </xsd:complexType>
+	</xsd:element>
+
+	<xsd:element name="getAuthorsResponse">
+		<xsd:complexType>
+			<xsd:sequence>
+<!-- 				A compléter : retourner une liste -->
+	            <xsd:sequence>
+	                <xsd:element name="authors" type="tns:author"/>
+	            </xsd:sequence>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+
+	<!-- Ajouter un auteur -->
+	<xsd:element name="addAuthorRequest">
+		<xsd:complexType>
+			<xsd:sequence>
+				<!-- Ici les arguments pour appeler la méthode : 1, 2, 3 arguements ? Au choix -->
+	            <xsd:sequence>
+	                <xsd:element name="author" type="tns:author"/>
+	            </xsd:sequence>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+
+	<xsd:element name="addAuthorResponse">
+<!-- 		 A compléter --> 
+		<xsd:complexType>
+			<xsd:sequence>
+<!-- 				Ici les arguments pour appeler la méthode : 1, 2, 3 arguements ? Au choix -->
+	            <xsd:sequence>
+	                <xsd:element name="author" type="tns:author"/>
+	            </xsd:sequence>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+
+</xsd:schema>
